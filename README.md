@@ -8,8 +8,6 @@ This project is a re-release of the original project from the Gitee repository o
 
 <font face="Times">We proposed a novel deep learning algorithm named feature fusion temporal convolutional network (FFTCN) for automatic sleep staging using single-channel EEG data. This algorithm employed a one-dimensional convolutional neural network (1D-CNN) to extract temporal features from raw EEG, and a two-dimensional CNN (2D-CNN) to extract time-frequency features from spectrograms generated through continuous wavelet transform (CWT) at the epoch level. These features were subsequently fused and further fed into a temporal convolutional network (TCN) to classify sleep stages at the sequence level. Moreover, a two-step training strategy was used to enhance the model’s performance on an imbalanced dataset. Our proposed method exhibits superior performance in the 5-class classification task for healthy subjects, as evaluated on the SHHS-1, Sleep-EDF-153, and ISRUC-S1 datasets. This work provided a straightforward and promising method for improving the accuracy of automatic sleep staging using only single-channel EEG, and the proposed method exhibited great potential for future applications in professional sleep monitoring, which could effectively alleviate the workload of sleep technicians. The architecture of FFTCN is illustrated in the figure as follows.</font>
 
-<img title="" src="file:///D:/研究生/睡眠分期/SCI写作/图片/单栏图片/演示文稿4.jpg" alt="" data-align="center">
-
 # 1.Preprocess EEG data
 
 `FFTCN/data/preprocessor.py`
@@ -30,23 +28,17 @@ Firstly, the S3 and S4 stages were merged into N3 to achieve compatibility with 
 
 In this study, a 1D-CNN structure was designed to extract the temporal feature from the raw EEG signal at the epoch level. As depicted in Figure as follows, the network primarily consisted of 4 convolutional blocks and 2 max-pooling blocks. Each convolutional block comprised a convolutional layer, a batch normalization (BN) layer, and applied Rectified Linear Unit (ReLU) activation.
 
-<img src="file:///D:/研究生/睡眠分期/SCI写作/图片/单栏图片/optimized/演示文稿2_页面_02.png" title="" alt="" data-align="center">
-
 # 4.2D-CNN
 
 `FFTCN/models/wavelet/network.py`
 
 We designed a 2D-CNN structure to extract time-frequency features from the  wavelet maps at the epoch level. The architecture is illustrated in Figure as follows. The network consisted of 4 convolutional pooling (conv-pool) blocks, each of which included 2 convolution operations and 1 pooling operation, and an additional conv-pool block was performed to further reduce the feature dimension. 
 
-<img src="file:///D:/研究生/睡眠分期/SCI写作/图片/单栏图片/optimized/演示文稿2_页面_03.png" title="" alt="" data-align="center">
-
 # 5.TCN
 
 `FFTCN/models/base/tcn.py`
 
 Our TCN model consisted of four Temporal Blocks. Each block was comprised of 2 dilated convolution operations and a   convolutional layer for residual connections.
-
-<img src="file:///D:/研究生/睡眠分期/SCI写作/图片/单栏图片/optimized/演示文稿2_页面_04.png" title="" alt="" data-align="center">
 
 `FFTCN/models/merge/network.py`
 
