@@ -54,6 +54,6 @@ Combine 1D-CNN, 2D-CNN and TCN to obtain FFTCN.
 
 # 6.Dataloader, Train and Validate
 
-We provide a dataloader for [https://sleepdata.org/datasets/shhshttps://sleepdata.org/datasets/shhs].
+We provide a dataloader for [https://sleepdata.org/datasets/shhs].
 
 Run `FFTCN/models/raw/trainer.py` to pretrain 1D-CNN, and run `FFTCN/models/wavelet/trainer.py` to pretrain 2D-CNN. Finally, run `FFTCN/models/merge/trainer.py` to finetune FFTCN. The results of validation and test set will be saved in the same directory.
