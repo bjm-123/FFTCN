@@ -4,6 +4,7 @@
 
 This project is a re-release of the original project from the Gitee repository on GitHub. The original project is available at [https://gitee.com/abmoon/waveletnet/tree/master](here), and the original contributor of this project is [https://gitee.com/abmoon?utm_source=poper_profile](here).
 
+This project requires Python 3.7 and Pytorch 1.8 environment.
 For more details, please refer to README.pdf.</font>
 
 # <font face="Times">Introduction</font>
